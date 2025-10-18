@@ -13,7 +13,7 @@ This project combines concepts from **computer vision, machine learning, and aud
 3. hussen  
 4. amany 
 5. amna  
-6. azeza  
+6. naima
 7. kazem  
 
 ---
