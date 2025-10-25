@@ -1,0 +1,38 @@
+# اسم الـ Action
+name: Send Telegram Notification on Push
+
+# "المُحفّز" - يعمل عند الرفع
+on:
+  push:
+    branches:
+      - main  # يمكنك تغييره إلى اسم الفرع الرئيسي لديك إذا كان مختلفاً
+
+# "الوظائف"
+jobs:
+  send_notification:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send notification message
+        uses: appleboy/telegram-action@master
+        with:
+          # استخدام الأسرار التي حفظناها
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+
+          # هذه هي الرسالة
+          message: |
+            📢 **New Push Alert!**
+
+            **Repository:** ${{ github.repository }}
+            **Pushed by:** ${{ github.actor }}
+            **Branch:** ${{ github.ref_name }}
+
+            **Last Commit Message:**
+            ${{ github.event.head_commit.message }}
+
+            **View Commit:**
+            ${{ github.event.head_commit.url }}
+
+          format: markdown
+          
