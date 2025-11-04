@@ -10,6 +10,8 @@ import mediapipe as mp
 import math
 from PIL import Image, ImageDraw, ImageFont # For drawing Arabic text
 import traceback # For detailed error printing
+from bidi.algorithm import get_display
+import arabic_reshaper
 
 #take cears of warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -200,16 +202,19 @@ try:
                 current_sentence += " " # Add one space
                 space_added = True # Lock to prevent space spam
 
-        # --- DISPLAY TEXT (Using Pillow for Arabic support) ---
+        # --- 10. DISPLAY TEXT (Using Pillow for Arabic support) ---
         # Convert the OpenCV canvas (Numpy) to a PIL Image
         pil_image = Image.fromarray(cv2.cvtColor(canvas, cv2.COLOR_BGR2RGB))
         draw = ImageDraw.Draw(pil_image)
 
+        # (NEW) Apply BIDI to fix Right-to-Left (RTL) text ordering
+        reshaped_text = arabic_reshaper.reshape(current_sentence)
+        bidi_text = get_display(reshaped_text)
+
         # Draw the sentence text on the image
-        # (Pillow handles Arabic text rendering correctly)
         draw.text(
             (w - 50, h + (TEXT_BOX_HEIGHT // 2)), # Position (start from the right)
-            current_sentence, 
+            bidi_text, # (MODIFIED) We now draw the corrected bidi_text
             font=font, 
             fill=TEXT_COLOR_PIL,
             anchor="rm" # Anchor: 'r'ight, 'm'iddle
