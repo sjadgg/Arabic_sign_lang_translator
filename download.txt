@@ -1,3 +1,5 @@
-write this comand to install evry things and make VE for python
+Use Python 3.10 or 3.11.
 
-python -m venv venv ; .\venv\Scripts\Activate.ps1 ; pip install -r requirements-lock.txt
+py -3.11 -m venv venv
+.\venv\Scripts\Activate.ps1
+python -m pip install -r requirements-lock.txt
