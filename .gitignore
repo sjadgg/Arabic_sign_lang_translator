@@ -3,6 +3,7 @@ venv/
 .venv/
 env/
 ENV/
+tempCodeRunnerFile.py
 
 # Python cache and artifacts
 __pycache__/
