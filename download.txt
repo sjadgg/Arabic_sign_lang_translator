@@ -1,0 +1,22 @@
+there are tow type of labs , light ones and havy ones
+
+write this comands one by one to install LIGHT labs and make VE for python
+
+python -m venv venv 
+\venv\Scripts\Activate.ps1 
+pip install -r requirements-lock.txt
+
+
+
+write this comands one by one to install HAVY labs and make VE for python
+
+python -m venv venv 
+\venv\Scripts\Activate.ps1 
+pip install -r requirements-lockL.txt
+
+why there are tow ons ?
+first we used tenserflow to made our model but its so have the finel app is 700 MB
+later we use ONNX its much lighter and the finel app is 300 MB
+
+aiapp2,py is the havy one
+aiappL.py is the light one (L for light)

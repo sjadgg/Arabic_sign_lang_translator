@@ -1,0 +1,16 @@
+tensorflow
+pandas
+numpy
+scikit-learn
+mediapipe
+opencv-python
+Pillow
+arabic-reshaper
+python-bidi
+pyside6
+pywin32
+winrt-runtime
+winrt-windows-media-speechsynthesis
+winrt-windows-storage-streams
+winrt-windows-foundation
+winrt-windows-foundation-collections

@@ -1,0 +1,33 @@
+name: flutter_application_1
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=2.12.0 <4.0.0' # توافق مع إصدارك القديم
+
+dependencies:
+  flutter:
+    sdk: flutter
+  camera: ^0.11.2
+  tflite_flutter: ^0.12.1
+  flutter_tts: ^3.8.5
+  shared_preferences: ^2.2.2
+  flutter_launcher_icons: ^0.13.1
+  url_launcher: ^6.3.0
+
+# احذف قسم dev_dependencies بالكامل أو أفرغه هكذا:
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/asl_model_mobile.tflite
+    - assets/hand_landmarker.task
+    - assets/images/
+flutter_icons:
+  android: true
+  ios: false
+  image_path: "assets/images/16.png"
